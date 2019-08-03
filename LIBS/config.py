@@ -15,7 +15,7 @@ workingdirbase = '/tmp/SHE_DECIDES' # directory in which to create the temporary
 tempdirname = "".join(random.choice(string.ascii_letters) for _ in range(20))
 config_parameters['workingdir'] = os.path.join(workingdirbase, tempdirname)
 
-outputdirbase ='/home/mlennert/SHE_DECIDES/Results'
+outputdirbase ='/usr/opt/she-decides/data/output'
 config_parameters['outputdir'] = os.path.join(outputdirbase, 'SEN')
 
 # Define desired outputs
@@ -31,7 +31,7 @@ config_parameters['locationepsg'] = '32628' #  EPSG code for WGS84 UTM ZONE 28N 
 #config_parameters['locationepsg'] = os.path.join(HOMEDIR, "Data", "rgc_proj4") # Example of custom projection
 
 # DATA INFO
-datadir = '/home/mlennert/SHE_DECIDES/Input_data'
+datadir = '/usr/opt/she-decides/data/input'
 data['admin'] = ('admin1',os.path.join(datadir, 'Admin/gadm36_SEN_0.shp'))
 data['WOCBA_PPP'] = ('WOCBA_PPP',os.path.join(datadir, 'Population/ppp_prj_2014_SEN_WOCBA.tif'))
 data['POP_PPP'] = ('POP_PPP',os.path.join(datadir, 'Population/ppp_prj_2014_SEN.tif'))
@@ -67,13 +67,13 @@ rule_file['ESACCI_DS'] = os.path.join(datadir, 'LandCover/reclass_ESACCI_DS')
 rule_file['Recode_streams'] = os.path.join(datadir, 'Recode_streams')
 
 # COMPUTATIONAL PARAMETERS
-config_parameters['njobs'] = 3 # Adapt according to the number of cores you want to use
-config_parameters['memory'] = 4000 # available RAM in MB
+config_parameters['njobs'] = 4 # Adapt according to the number of cores you want to use
+config_parameters['memory'] = 8000 # available RAM in MB
 
 # GRASS GIS INSTALLATION INFORMATION
 
 config_parameters['GISBASE'] = '/usr/lib/grass76'
-config_parameters['PYTHONLIB'] = '/usr/lib/python27'
+config_parameters['PYTHONLIB'] = '/usr/lib/python2.7'
 # The following should only be necessary on MS Windows or for custom GDAL
 # installations
 #config_parameters['GDAL_DATA'] = ''
