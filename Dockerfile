@@ -24,3 +24,6 @@ USER shedecides
 WORKDIR /home/shedecides
 COPY SheDecides_Python_chain.py shedecides.py
 COPY LIBS ./LIBS
+
+ENTRYPOINT ["python"]
+CMD ["shedecides.py"]
