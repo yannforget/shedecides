@@ -10,34 +10,34 @@ def create_pointmap(units, groups, groupsets, pointmapname, overwrite=True):
     with open(tempfile, 'w') as fout:
 	for unit in units.keys():
 	    output = []
-            output.append(str(unit))
-            for v in units[unit]:
-                output.append(str(v))
-            if unit in groups:
-                groupid = groups[unit]['groupid']
-                groupname = groups[unit]['groupname'] 
-            else:
-                if groupid not in groupsnotfound:
-                    groupsnotfound.append(groupid)
-                groupid = ''
-                grouname = ''
-            output.append(str(groupid))
-            output.append(str(groupname))
+        output.append(str(unit))
+        for v in units[unit]:
+            output.append(str(v))
+        if unit in groups:
+            groupid = groups[unit]['groupid']
+            groupname = groups[unit]['groupname'] 
+        else:
+            if groupid not in groupsnotfound:
+                groupsnotfound.append(groupid)
+            groupid = ''
+            groupname = ''
+        output.append(str(groupid))
+        output.append(str(groupname))
 
-            if groupid in groupsets:
-                groupsetid = groupsets[groupid]['groupsetid']
-                groupsetname = groupsets[groupid]['groupsetname']
-            else:
-                if groupsetid not in groupsetsnotfound:
-                    groupsetsnotfound.append(groupsetid)
-                groupsetid = ''
-                groupsetname = ''
-            output.append(str(groupsetid))
-            output.append(str(groupsetname))
+        if groupid in groupsets:
+            groupsetid = groupsets[groupid]['groupsetid']
+            groupsetname = groupsets[groupid]['groupsetname']
+        else:
+            if groupsetid not in groupsetsnotfound:
+                groupsetsnotfound.append(groupsetid)
+            groupsetid = ''
+            groupsetname = ''
+        output.append(str(groupsetid))
+        output.append(str(groupsetname))
 
-            output_string = ','.join(output)
-	    fout.write(output_string)
-	    fout.write('\n')
+        output_string = ','.join(output)
+        fout.write(output_string)
+        fout.write('\n')
 
     if groupsnotfound:
         warning_message = "Could not find the following groups:\n"
@@ -102,17 +102,17 @@ def get_units(json_file):
     
     We use a list, here, in order to ensure a specific order of the data.
     """
-     with open(json_file, 'r') as fin:
+    with open(json_file, 'r') as fin:
          datas = json.load(fin)
 
-     units = {}
-     for line in datas['organisationUnits']:
-         if 'coordinates' in line and line['featureType'] == 'POINT':
-             unitinfo = []
-             unitinfo.append(json.loads(line['coordinates'])[0])
-             unitinfo.append(json.loads(line['coordinates'])[1])
-             unitinfo.append(line['name'].encode('utf-8'))
-             unitinfo.append(line['shortName'].encode('utf-8'))
-             units[line['id']] = unitinfo
+    units = {}
+    for line in datas['organisationUnits']:
+        if 'coordinates' in line and line['featureType'] == 'POINT':
+            unitinfo = []
+            unitinfo.append(json.loads(line['coordinates'])[0])
+            unitinfo.append(json.loads(line['coordinates'])[1])
+            unitinfo.append(line['name'].encode('utf-8'))
+            unitinfo.append(line['shortName'].encode('utf-8'))
+            units[line['id']] = unitinfo
 
-     return units
+    return units

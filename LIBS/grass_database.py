@@ -11,15 +11,15 @@ import shutil ## Import library for file copying
 
 
 def check_gisdb(gisdb_path):
-    """Automatic creation of GRASSDATA folder"""
-    if os.path.exists(gisdb_path):
-		print "GRASSDATA folder already exist" 
-	else: 
+	"""Automatic creation of GRASSDATA folder"""
+	if os.path.exists(gisdb_path):
+		print "GRASSDATA folder already exist"
+	else:
 		os.makedirs(gisdb_path) 
 		print "GRASSDATA folder created in '%s'"%gisdb_path
 		
 def check_location(gisdb_path,location_name,epsg):
-    """Automatic creation of GRASS location is doesn't exist"""
+	"""Automatic creation of GRASS location is doesn't exist"""
 	if os.path.exists(os.path.join(gisdb_path,location_name)):
 		print "Location '%s' already exist"%location_name
 	else : 
