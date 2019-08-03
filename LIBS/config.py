@@ -15,7 +15,7 @@ workingdirbase = '/tmp/SHE_DECIDES' # directory in which to create the temporary
 tempdirname = "".join(random.choice(string.ascii_letters) for _ in range(20))
 config_parameters['workingdir'] = os.path.join(workingdirbase, tempdirname)
 
-outputdirbase ='/usr/opt/she-decides/data/output'
+outputdirbase ='/home/shedecides/data/output'
 config_parameters['outputdir'] = os.path.join(outputdirbase, 'SEN')
 
 # Define desired outputs
@@ -31,7 +31,7 @@ config_parameters['locationepsg'] = '32628' #  EPSG code for WGS84 UTM ZONE 28N 
 #config_parameters['locationepsg'] = os.path.join(HOMEDIR, "Data", "rgc_proj4") # Example of custom projection
 
 # DATA INFO
-datadir = '/usr/opt/she-decides/data/input'
+datadir = '/home/shedecides/data/input'
 data['admin'] = ('admin1',os.path.join(datadir, 'Admin/gadm36_SEN_0.shp'))
 data['WOCBA_PPP'] = ('WOCBA_PPP',os.path.join(datadir, 'Population/ppp_prj_2014_SEN_WOCBA.tif'))
 data['POP_PPP'] = ('POP_PPP',os.path.join(datadir, 'Population/ppp_prj_2014_SEN.tif'))

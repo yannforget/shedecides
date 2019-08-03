@@ -4,9 +4,7 @@ LABEL maintainer="yannforget@mailbox.org"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-WORKDIR /usr/opt/she-decides
-COPY SheDecides_Python_chain.py shedecides.py
-COPY LIBS ./LIBS
+RUN useradd -ms /bin/bash shedecides
 
 # Install python 2.7, Pandas and NumPy
 RUN apt-get -y update && \
@@ -22,6 +20,7 @@ RUN apt-get install -y software-properties-common && \
     apt-get -y update && \
     apt-get -y install grass
 
-# Create data directories
-RUN mkdir -p /usr/opt/she-decides/data/input && \
-    mkdir -p /usr/opt/she-decides/data/output
+USER shedecides
+WORKDIR /home/shedecides
+COPY SheDecides_Python_chain.py shedecides.py
+COPY LIBS ./LIBS
