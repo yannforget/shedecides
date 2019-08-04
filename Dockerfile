@@ -14,11 +14,13 @@ RUN apt-get -y update && \
         python-numpy \
         python-pandas
 
-# Install GRASS GIS + make to install extensions
+# Install GRASS GIS
+# A compiler is needed to install GRASS extensions, i.e.
+# make, gcc, and grass development files
 RUN apt-get install -y software-properties-common && \
     add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && \
     apt-get -y update && \
-    apt-get -y install grass build-essential
+    apt-get -y install grass grass-dev build-essential
 
 USER shedecides
 WORKDIR /home/shedecides
