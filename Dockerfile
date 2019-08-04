@@ -20,7 +20,12 @@ RUN apt-get -y update && \
 RUN apt-get install -y software-properties-common && \
     add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && \
     apt-get -y update && \
-    apt-get -y install grass grass-dev build-essential
+    apt-get -y install \
+        grass \
+        grass-dev \
+        grass-doc \
+        grass-dev-doc \
+        build-essential
 
 USER shedecides
 WORKDIR /home/shedecides
