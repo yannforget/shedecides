@@ -8,8 +8,8 @@ def create_pointmap(units, groups, groupsets, pointmapname, overwrite=True):
     groupsnotfound = []
     groupsetsnotfound = []
     with open(tempfile, 'w') as fout:
-	for unit in units.keys():
-	    output = []
+    for unit in units.keys():
+        output = []
         output.append(str(unit))
         for v in units[unit]:
             output.append(str(v))
@@ -69,13 +69,13 @@ def get_groupsets(json_file):
     groupsets = {}
 
     for line in datas['organisationUnitGroupSets']:
-	if not line['organisationUnitGroups']:
-	     continue
-	for group in line['organisationUnitGroups']:
-	     groupdict = {}
-	     groupdict['groupsetid'] = line['id']
-	     groupdict['groupsetname'] = line['name'].encode('utf-8')
-	     groupsets[group['id']] = groupdict
+        if not line['organisationUnitGroups']:
+            continue
+        for group in line['organisationUnitGroups']:
+            groupdict = {}
+            groupdict['groupsetid'] = line['id']
+            groupdict['groupsetname'] = line['name'].encode('utf-8')
+            groupsets[group['id']] = groupdict
 
     return groupsets
 
@@ -87,8 +87,8 @@ def get_groups(json_file):
     groups = {}
 
     for line in datas['organisationUnitGroups']:
-	if not line['organisationUnits']:
-            continue
+    if not line['organisationUnits']:
+        continue
         for unit in line['organisationUnits']:
             unitdict = {}
             unitdict['groupid'] = line['id']
