@@ -11,9 +11,9 @@ cd shedecides
 docker build -t she-decides .
 
 # Use demonstration data
-mkdir -p shedecides/data/input
+mkdir -p data/input
 tar xzvf DATA_DEMO_Senegal.tgz
-mv DATA/* shedecides/data/input
+mv DATA/* data/input
 rm -r DATA
 
 # Run container
