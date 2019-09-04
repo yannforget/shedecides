@@ -28,8 +28,8 @@ def create_pointmap(units, groups, groupsets, pointmapname, overwrite=True):
                 groupsetid = groupsets[groupid]['groupsetid']
                 groupsetname = groupsets[groupid]['groupsetname']
             else:
-                if groupsetid not in groupsetsnotfound:
-                    groupsetsnotfound.append(groupsetid)
+                # if groupsetid not in groupsetsnotfound:
+                #     groupsetsnotfound.append(groupsetid)
                 groupsetid = ''
                 groupsetname = ''
             output.append(str(groupsetid))
