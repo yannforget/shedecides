@@ -89,11 +89,11 @@ def get_groups(json_file):
     for line in datas['organisationUnitGroups']:
         if not line['organisationUnits']:
             continue
-            for unit in line['organisationUnits']:
-                unitdict = {}
-                unitdict['groupid'] = line['id']
-                unitdict['groupname'] = line['name'].encode('utf-8')
-                groups[unit['id']] = unitdict
+        for unit in line['organisationUnits']:
+            unitdict = {}
+            unitdict['groupid'] = line['id']
+            unitdict['groupname'] = line['name'].encode('utf-8')
+            groups[unit['id']] = unitdict
 
     return groups
 
