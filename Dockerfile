@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:bionic-20190807
 
 LABEL maintainer="yannforget@mailbox.org"
 
@@ -18,7 +18,7 @@ ENV LC_ALL C.UTF-8
 
 # Install python 2.7, Pandas and NumPy
 RUN apt-get install -y --no-install-recommends \
-        python2.7 \
+        python-minimal \
         python-numpy \
         python-pandas
 
@@ -29,7 +29,7 @@ RUN apt-get install -y \
         wget \
         software-properties-common \
         build-essential && \
-    add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && \
+    add-apt-repository -y ppa:ubuntugis/ppa && \
     apt-get -y update && \
     apt-get -y install \
         grass \
